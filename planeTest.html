@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plane Test</title>
+
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+
+    <style type="text/css">
+
+        body{
+            height:630px;
+            width:1300px;
+
+            background: url("picture/background.png") no-repeat;
+        }
+
+        #title{
+            position:absolute;
+            top:30px;
+            left:350px;
+        }
+
+        #planeMessageTable{
+            position:absolute;
+            top:140px;
+            left:1186px;
+        }
+
+        .planeMessage{
+            position: absolute;
+            top:140px;
+            left:1186px;
+        }
+
+        .planeName{
+            position: absolute;
+            top:21px;
+            left:25px;
+
+
+            width:130px;
+
+
+            color:white;
+            font-size: large;
+
+            text-align: center;
+        }
+
+        .planeType{
+            position: absolute;
+            top:60px;
+            left:55px;
+
+            width:100px;
+
+            font-size: larger;
+            text-align: right;
+        }
+
+        .planeTurn{
+            position: absolute;
+            top:95px;
+            left:55px;
+
+            width:102px;
+
+            font-size: larger;
+            text-align: right;
+        }
+
+        .planeData{
+            position: absolute;
+            top:133px;
+            left:55px;
+
+            width:102px;
+
+            font-size: larger;
+            text-align: right;
+        }
+
+        #planeMessage2{
+            display: none;
+        }
+
+        #planeMessage3{
+            display: none;
+        }
+
+        #planeGroup{
+            position:absolute;
+            top:150px;
+        }
+
+        #planeBody{
+            position: relative;
+            left:310px;
+        }
+
+        #planeList{
+            position: relative;
+            top: 30px;
+            left: 110px;
+            width: 1200px;
+        }
+
+        .underArea{
+            position: absolute;
+            z-index: 10;
+        }
+
+        #wing
+        {
+            top:25px;
+            left:500px;
+
+            width:100px;
+            height:200px;
+        }
+
+        #tail{
+            top:80px;
+            left:810px;
+            width:175px;
+            height:160px;
+        }
+
+        #engine{
+            top:240px;
+            left:440px;
+
+            width:160px;
+            height:100px;
+        }
+
+        #planeMain{
+            top:350px;
+            left:300px;
+
+            width:250px;
+            height: 140px;
+        }
+
+        #frame{
+            top:350px;
+            left:600px;
+
+            width:150px;
+            height: 100px;
+        }
+
+        .showTable{
+            position: absolute;
+
+            border: 1px solid #003366;
+            border-collapse: collapse;
+
+            width:200px;
+
+            display: none;
+        }
+
+        th{
+            border: 1px dashed #003366;
+
+            background: #003366;
+
+            color:white;
+        }
+
+       td{
+           border: 1px solid #CCCCFF;
+
+           color: #003366;
+       }
+
+        #planeMainTable{
+            top:350px;
+            left:50px;
+        }
+
+        #engineTable{
+            top:180px;
+            left:100px;
+        }
+
+        #wingTable{
+            top:40px;
+            left:250px;
+        }
+
+        #tailTable{
+            top:200px;
+            left:1100px;
+        }
+
+        #frameTable{
+            top:350px;
+            left:1050px;
+        }
+
+        #planeImg1{
+            cursor: pointer;
+        }
+
+        #planeImg2{
+            cursor: pointer;
+        }
+
+        #planeImg3{
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="title">
+    <img src="picture/logo.png"/>
+    <img src="picture/title.png"/>
+</div>
+
+<img id="planeMessageTable" src="picture/planeTable.png"/>
+
+<div id="planeMessage1" class="planeMessage">
+    <div id="planeName1" class="planeName">C919</div>
+    <div id="planeType1" class="planeType">8</div>
+    <div id="planeTurn1" class="planeTurn">126</div>
+    <div id="planeData1" class="planeData">2183</div>
+</div>
+
+<div id="planeMessage2" class="planeMessage">
+<div id="planeName2" class="planeName">B747</div>
+<div id="planeType2" class="planeType">80</div>
+<div id="planeTurn2" class="planeTurn">1260</div>
+<div id="planeData2" class="planeData">21830</div>
+</div>
+
+<div id="planeMessage3" class="planeMessage">
+<div id="planeName3" class="planeName">A2000</div>
+<div id="planeType3" class="planeType">800</div>
+<div id="planeTurn3" class="planeTurn">12600</div>
+<div id="planeData3" class="planeData">218300</div>
+</div>
+
+
+<div id="planeGroup">
+<div id="wing" class="underArea">
+</div>
+
+<div id="tail" class="underArea">
+</div>
+
+<div id="engine" class="underArea">
+</div>
+
+<div id="planeMain" class="underArea">
+</div>
+
+<div id="frame" class="underArea">
+</div>
+
+<table id="planeMainTable" class="showTable">
+    <th>机身</th>
+    <tr><td class="td1">机身位置1：</td></tr>
+    <tr><td class="td23">机身位置2：</td></tr>
+    <tr><td class="td23">机身位置3：</td></tr>
+</table>
+
+<table id="engineTable" class="showTable">
+    <th>发动机</th>
+    <tr><td class="td1">发动机位置1：</td></tr>
+    <tr><td class="td23">发动机位置2：</td></tr>
+    <tr><td class="td23">发动机位置3：</td></tr>
+</table>
+
+<table id="wingTable" class="showTable">
+    <th>机翼</th>
+    <tr><td class="td1">机翼位置1：</td></tr>
+    <tr><td class="td23">机翼位置2：</td></tr>
+    <tr><td class="td23">机翼位置3：</td></tr>
+</table>
+
+<table id="tailTable" class="showTable">
+    <th>尾翼</th>
+    <tr><td class="td1">尾翼位置1：</td></tr>
+    <tr><td class="td23">尾翼位置2：</td></tr>
+    <tr><td class="td23">尾翼位置3：</td></tr>
+</table>
+
+<table id="frameTable" class="showTable">
+    <th>起落架</th>
+    <tr><td class="td1">起落架位置1：</td></tr>
+    <tr><td class="td23">起落架位置2：</td></tr>
+    <tr><td class="td23">起落架位置3：</td></tr>
+</table>
+
+<img id="planeBody" src="picture/planeBody.png"/>
+
+<div id="planeList" >
+    <img id="planeImg1" src="picture/plane1.png"/>
+    <img id="planeImg2" src="picture/plane2.png"/>
+    <img id="planeImg3" src="picture/plane3.png"/>
+</div>
+</div>
+
+<script type="text/javascript">
+
+    //处理鼠标移动，表格显示的函数
+
+    $('#planeMain').mouseover(function(){
+        $('#planeMainTable').toggle();
+    })
+
+    $('#planeMain').mouseout(function(){
+        $('#planeMainTable').toggle();
+    })
+
+    $('#wing').mouseover(function(){
+        $('#wingTable').toggle();
+    })
+
+    $('#wing').mouseout(function(){
+        $('#wingTable').toggle();
+    })
+
+    $('#tail').mouseover(function(){
+        $('#tailTable').toggle();
+    })
+
+    $('#tail').mouseout(function(){
+        $('#tailTable').toggle();
+    })
+
+    $('#engine').mouseover(function(){
+        $('#engineTable').toggle();
+    })
+
+    $('#engine').mouseout(function(){
+        $('#engineTable').toggle();
+    })
+
+    $('#frame').mouseover(function(){
+        $('#frameTable').toggle();
+    })
+
+    $('#frame').mouseout(function(){
+        $('#frameTable').toggle();
+    })
+
+    $('#planeImg1').click(function(){
+        $('#planeMessage1').show();
+        $('#planeMessage2').hide();
+        $('#planeMessage3').hide();
+    })
+
+    $('#planeImg2').click(function(){
+        $('#planeMessage2').show();
+        $('#planeMessage1').hide();
+        $('#planeMessage3').hide();
+    })
+
+    $('#planeImg3').click(function(){
+        $('#planeMessage3').show();
+        $('#planeMessage1').hide();
+        $('#planeMessage2').hide();
+    })
+
+
+</script>
+
+</body>
+</html>
